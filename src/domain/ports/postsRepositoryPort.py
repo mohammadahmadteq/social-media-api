@@ -5,11 +5,11 @@ from ..entities.post import PostEntity
 
 class PostRepositoryPort(ABC):
     @abstractmethod
-    def getAllPosts(self, pagination: dict):
+    def getAllPosts(self, paginationInfo: dict):
         pass
 
     @abstractmethod
-    def getMyPosts(self, userId: str, pagination: dict):
+    def getMyPosts(self, userId: str, paginationInfo: dict):
         pass
 
     @abstractmethod
