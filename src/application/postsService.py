@@ -30,7 +30,7 @@ class PostService:
                 title=PostDTO.title,
                 content=PostDTO.content,
                 userId=PostDTO.userId,
-                postId=postId[0:7],
+                postId= str(postId),
             )
             posts = self.postRepository.createPost(postEntity)
             print(posts)

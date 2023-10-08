@@ -1,7 +1,7 @@
-from pydantic import BaseModel, constr
+from pydantic import BaseModel
 
 
 class CreateNewPostDTO(BaseModel):
     title: str
     content: str
-    userId: constr(max_length=7)
+    userId: str
