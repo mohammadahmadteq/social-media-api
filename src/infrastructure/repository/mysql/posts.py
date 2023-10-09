@@ -8,9 +8,6 @@ from src.application.dto.common.paginationDTO import PaginationInfoDTO
 class PostRepository(PostRepositoryPort):
     def getAllPosts(self, paginationInfo: PaginationInfoDTO):
         myDb = initalizeDb()
-        print(
-            f"SELECT * FROM social_media.posts OFFSET {paginationInfo.pageNumber * paginationInfo.totalItems} LIMIT {paginationInfo.totalItems}"
-        )
         try:
             with myDb.cursor() as cursor:
                 cursor.execute(
@@ -71,6 +68,6 @@ class PostRepository(PostRepositoryPort):
 
                 return fetchedData
         except connector.Error as e:
-            print(e)
+            raise Exception(e)
         finally:
             myDb.close()
